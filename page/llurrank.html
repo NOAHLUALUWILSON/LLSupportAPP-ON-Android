@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+      <title></title>
+   <script src="../js/llhjq.js"></script>
+   <script src="../js/llh.min.js"></script>
+   <script type="text/javascript" src="../js/twintailosu.js"></script>
+   <script type="text/javascript" src="../js/mui.min.js"></script>
+   <script type="text/javascript" src="../js/mui.js"></script>
+<script>
+	var _back = mui.back;
+			mui.back = function() {
+				if (showMenu) {
+					closeMenu();
+				} else {
+					_back();
+				}
+			};
+</script>
+   <link rel="stylesheet" href="../css/mui.min.css"  />
+   <link rel="stylesheet" href="../css/style.css" />
+   <style type="text/css">
+      button {position:relative;height:200px;width:200px;margin-left:100px;margin-top:100px;background-color:#F0F8FF}
+	.mui-bar{background-color: #FFD700;}
+	.mui-bar{background-color: #FF69B4;}
+	.mui-title{color: #FFFFFF;}
+	.mui-icon{color: #FFFFFF;}
+   </style>
+   
+   <script src="js/llurrank.js" type="text/javascript"></script>
+   
+   </head>
+   <body >
+	<div class="indexmd-title box-shadow" style="background-color: #9C27B0;">
+		<a class="mui-icon mui-icon-back indexmd-back" href="../toolsview.html"></a>
+	</div>
+	<br><br><br><br>
+<div class="mui-content" style="opacity: 0.8;">
+	<br>
+
+
+有保底期间11连次数:<input type="text" id="11" name="11" value="0" autocomplete="off"style="width: 100px;"><br>
+无保底期间11连次数:<input type="text" id="11n" name="11n" value="0" autocomplete="off"style="width: 100px;"><br>
+单抽+招募券次数:<input type="text" id="single" name="single" value="0" autocomplete="off"style="width: 125px;"><br>
+欧洲券次数:<input type="text" id="support" name="support" value="0" autocomplete="off"style="width: 170px;"><br>
+抽到UR个数:<input type="text" id="ur" name="ur" value="0" autocomplete="off"style="width: 165px;"><br>
+
+<input type="button" name="submit" value="Calculate" onclick="calculate()"> <br>
+<p id="species"></p>
+<p id="result"></p>
+	<a style="position:botton"><b>Powered By LLHelper</b></a><br>
+</div>
+</body>
+</html>

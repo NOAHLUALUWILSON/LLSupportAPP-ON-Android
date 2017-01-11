@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+      <title>LoveLiveSupport</title>
+   <script src="../js/llhjq.js"></script>
+   <script src="../js/llh.min.js"></script>
+   <script type="text/javascript" src="../js/twintailosu.js"></script>
+   <link rel="stylesheet" href="../css/mui.min.css" />
+   <link rel="stylesheet" href="../css/style.css" />
+   <style type="text/css">
+   	button {position:relative;height:200px;width:200px;margin-left:100px;margin-top:100px;background-color:#F0F8FF}
+   	table {position:relative;margin-left:30px;}
+   	td {size:2}
+   </style>
+   <script src="js/song.js" type="text/javascript"></script>
+   
+  </head>
+   <body onload="init()">
+	<div class="indexmd-title box-shadow" style="background-color: #1565C0;">
+		<a class="mui-icon mui-icon-back indexmd-back" href="../toolsview.html"></a>
+	</div>
+	<br><br><br><br>
+<div class="mui-content" style="opacity: 0.8;"><br>
+搜索：<input type="text" id="search" value="" onchange="changesongselect()" style="width: 240px;"><br>
+筛选：<select id="diff" name="diff" onchange="changesongselect();changediffinfo()" style="display:none">
+		<option value="">难度</option>
+		<option value="easy">easy</option>
+		<option value="normal">normal</option>
+		<option value="hard">hard</option>
+		<option value="expert">expert</option>
+	</select>
+	<select id="songatt" name="songatt" onchange="changesongselect()"  style="width: 100px;">
+		<option value="">属性</option>
+		<option value="smile">smile</option>
+		<option value="pure">pure</option>
+		<option value="cool">cool</option>
+	</select>
+   <!--
+	<select id="songcnhave" name="songcnhave" onchange="changesongselect();changediffinfo()">
+		<option value="">国服是否有</option>
+		<option value=1>国服有</option>
+		<option value=0>国服没</option>
+	</select>
+	<select id="songtype" name="songtype" onchange="changesongselect()">
+		<option value="">类型</option>
+		<option value="普通曲">普通曲</option>
+		<option value="活动曲">活动曲</option>
+		<option value="日替">日替</option>
+	</select>
+	<select id="smfilter" name="smfilter" onchange="changesongselect();changediffinfo()">
+		<option value="">SM查询</option>
+		<option value="1">第一次SM</option>
+		<option value="2">第二次SM</option>
+		<option value="3">第三次SM</option>
+		<option value="4">第四次SM</option>
+		<option value="5">第五次SM</option>
+		<option value="6">第六次SM</option>
+		<option value="7">第七次SM</option>
+		<option value="8">第八次SM</option>
+		<option value="9">第九次SM</option>
+		<option value="10">第十次SM</option>
+		<option value="11">第十一次SM</option>
+		<option value="12">第十二次SM</option>
+		<option value="13">第十三次SM</option>
+		<option value="14">第十四次SM</option>
+		<option value="15">第十五次SM</option>
+		<option value="16">第十六次SM</option>
+		<option value="17">第十七次SM</option>
+		<option value="18">第十八次SM</option>
+      <option value="19">第十九次SM</option>
+      <option value="20">第二十次SM</option>
+	</select>
+   <select id="mffilter" name="mffilter" onchange="changesongselect();changediffinfo()">
+      <option value="">MF查询</option>
+      <option value="1">第一次MF</option>
+      <option value="2">第二次MF</option>
+      <option value="3">第三次MF</option>
+      <option value="4">第四次MF</option>
+      <option value="5">第五次MF</option>
+      <option value="6">第六次MF</option>
+      <option value="7">第七次MF</option>
+   </select>--><br>
+歌曲：<select id="songchoice" name="songchoice" onchange="changediffinfo();changesonginfo(&#39;songchoice&#39;);" style="color: red; width: 240px;">
+		<option value="" > </option>
+	<option value="40" style="color: red;">未来的某一天</option><option value="226" style="color: red;">Someday of my life</option></select><br>
+	<br>
+难度：<select id="diffchoice" name="diffchoice" onchange="changesonginfo(&#39;songchoice&#39;)" style="width: 100px;">
+   <option value="easy">easy</option>
+   <option value="normal">normal</option>
+   <option value="hard">hard</option>
+   <option value="expert">expert</option>
+</select>
+	<input type="button" id="language" name="language" onclick="changeLanguage()" value="中文/日文 切换" class="mui-btn" style="margin: 10px;"><br>
+<h3>基本信息:</h3><br>
+
+<table border="1">
+<tbody>
+	<tr>
+		<td>歌曲名</td>
+		<td id="jpname" style="color: red;">Someday of my life</td>
+	</tr>
+	<tr>
+		<td>属性</td>
+		<td id="attribute" style="color: red;">smile</td>
+	</tr>
+	<tr>
+		<td>难度</td>
+		<td id="stardifficulty">8</td>
+	</tr>
+	<tr>
+		<td>combo数</td>
+		<td id="combo">319</td>
+	</tr>
+	<tr>
+		<td>长按比例</td>
+		<td id="slider">6.0%</td>
+	</tr>
+	<tr>
+		<td>打歌时间</td>
+		<td id="time">106秒</td>
+	</tr>
+	<tr>
+		<td>歌曲长度</td>
+		<td id="totaltime">115秒</td>
+	</tr>
+	<tr>
+		<td>BPM</td>
+		<td id="bpm">131</td>
+	</tr>
+<!--<tr>
+	<td>歌曲名</td>
+	<td>属性</td>
+	<td>难度</td>
+	<td id="randomdifficultytag" style="display:none">random谱难度</td>
+	<td id="lptag" style="display:none">消耗LP</td>
+	<td style="display:none">经验</td>
+	<td>combo数</td>
+</tr>
+<tr>
+	<td id="jpname" style="color: red;">Someday of my life</td>
+	<td id="attribute" style="color: red;">smile</td>
+	<td id="stardifficulty">8</td>
+	<td id="randomdifficulty" style="display:none"></td>
+	<td id="lp" style="display:none">15</td>
+	<td id="exp" style="display:none">46</td>
+	<td id="combo">319</td>
+</tr>
+<tr>
+	<td>长按比例</td>
+	<td>时间*(1)</td>
+	<td>歌曲长度*(2)</td>
+	<td>BPM</td>
+	<td style="display:none">星星数</td>
+</tr>
+<tr>
+	<td id="slider">6.0%</td>
+	<td id="time">106秒</td>
+	<td id="totaltime">115秒</td>
+	<td id="bpm">131</td>
+	<td id="star" style="display:none">50</td>
+</tr>-->
+<tr>
+	<td id="cnametag" style="display: none;">中文名</td>
+	<td id="name" style="color: red; display: none;">Someday of my life</td>
+</tr>
+</tbody></table><br>
+<!--
+<table border='1'>
+   <tr>
+      <td>SM收录</td>
+      <td id='sm'></td>
+   </tr>
+   <tr>
+      <td>MF收录</td>
+      <td id='mf'></td>
+   </tr>
+</table>-->
+
+<h3>分数要求:</h3><br>
+<table border="1">
+<tbody>
+	<tr>
+		<td></td>
+		<td>分数需求</td>
+		<td>最低属性</td>
+		<td>安全属性</td>
+	</tr>
+	<tr>
+		<td>C</td>
+		<td id="cscore">54230</td>
+		<td id="clowatt" style="color: red;">10711</td>
+		<td id="cstableatt" style="color: red;">12305</td>
+	</tr>
+	<tr>
+		<td>B</td>
+		<td id="bscore">135575</td>
+		<td id="blowatt" style="color: red;">26778</td>
+		<td id="bstableatt" style="color: red;">30763</td>
+	</tr>
+	<tr>
+		<td>A</td>
+		<td id="ascore">162690</td>
+		<td id="alowatt" style="color: red;">32134</td>
+		<td id="astableatt" style="color: red;">36915</td>
+	</tr>
+	<tr>
+		<td>S</td>
+		<td id="sscore">189805</td>
+		<td id="slowatt" style="color: red;">37490</td>
+		<td id="sstableatt" style="color: red;">43068</td>
+	</tr>
+	
+	
+	
+	
+	
+	
+<!--<tr>
+	<td></td>
+	<td>C</td>
+	<td>B</td>
+	<td>A</td>
+	<td>S</td>
+</tr>
+<tr>
+	<td>分数需求</td>
+	<td id="cscore">54230</td>
+	<td id="bscore">135575</td>
+	<td id="ascore">162690</td>
+	<td id="sscore">189805</td>
+</tr>
+<tr>
+	<td>最低属性*(5)</td>
+	<td id="clowatt" style="color: red;">10711</td>
+	<td id="blowatt" style="color: red;">26778</td>
+	<td id="alowatt" style="color: red;">32134</td>
+	<td id="slowatt" style="color: red;">37490</td>
+</tr>
+<tr>
+	<td>安全属性*(6)</td>
+	<td id="cstableatt" style="color: red;">12305</td>
+	<td id="bstableatt" style="color: red;">30763</td>
+	<td id="astableatt" style="color: red;">36915</td>
+	<td id="sstableatt" style="color: red;">43068</td>
+</tr>-->
+</tbody></table><br>
+<h3>其他:</h3><br>
+<table border="1">
+<tbody>
+	<tr>
+	<td>combo乘数</td>
+	<td id="combomulti">1.137</td>
+	</tr>
+	<tr>
+	<td>获得绊</td>
+	<td id="kizunaget">79</td>
+	</tr>
+	<tr>
+	<td>单位强度得分</td>
+	<td id="scoreperstrength">5.063</td>
+	</tr>
+	
+	
+	
+	<!--<tr>
+	<td>combo乘数*(4)</td>
+	<td>获得绊</td>
+	<td>单位强度得分*(8)</td>
+</tr>
+<tr>
+	<td id="combomulti">1.137</td>
+	<td id="kizunaget">79</td>
+	<td id="scoreperstrength">5.063</td>
+</tr>-->
+</tbody></table>
+<br>
+<a style="position:botton"><b>Powered By LLHelper</b></a><br>
+<script type="text/javascript" src="../js/mui.js"></script>
+<script>
+	var _back = mui.back;
+			mui.back = function() {
+				if (showMenu) {
+					closeMenu();
+				} else {
+					_back();
+				}
+			};
+</script>
+</div>
+</body></html>
