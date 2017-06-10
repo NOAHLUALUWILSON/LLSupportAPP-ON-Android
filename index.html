@@ -5,176 +5,69 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
     <title></title>
     <script src="js/mui.min.js"></script>
-    <script src="js/mui.js" type="text/javascript"></script>
     <link href="css/mui.min.css" rel="stylesheet"/>
-    <link href="css/style.css" rel="stylesheet"  />
+    <link href="css/style.css" rel="stylesheet" />
+    <script src="page/js/jq_c.min.js"></script>
+    <script src="js/getbanner.js"></script>
     <script type="text/javascript" charset="utf-8">
-    plus.key.addEventListener('backbutton',function(){
-		if(confirm('是否退出？')){
-			plus.runtime.quit();
-		}
-	},false);
+      	var _back = mui.back;
+			mui.back = function() {
+				if (showMenu) {
+					closeMenu();
+				} else {
+					_back();
+				}
+			};
     </script>
 </head>
 <body>
-	<div class="indexmd-title box-shadow">
-		<p class="indexmd-header-text">LLSupport</p>
-		<a class="mui-icon mui-icon-info indexmd-info" href="page/info.html"></a>
+	<header class="mui-bar mui-bar-nav">
+		<a class="mui-icon mui-icon-info mui-pull-right" href="page/info.html"></a>
+		<h1 class="mui-title" style="color: #000000;">LLSupport</h1>
+	</header>
+	<div class="br"></div>
+	<div class="main-banner">
+		<div class="main-banner-text">最新资讯</div>
+		<div id="notice" ></div>
 	</div>
-	<br><br><br><br>
-	<div class="index-tipsframe box-shadow">
-		<div id="block2"> 
-  			<ul id="rolltxt"> 
-   			 	<p>判定可以帮人FC却治不好手残如果想要好好练习水平请不要使用判定卡</p>
-   				<p>无判多练是提高水平的最好方法</p>
-    				<p>肝是为你的一生服务的而不仅是为了LL</p>
-    				<p>十一连的期望收益高于单抽所以尽量避免单抽</p>
-    				<p>不要将账号密码以及继承码告诉任何不可信的人</p>
-    				<p>获得活动中赠送的N卡后请第一时间加入挚爱</p>
-    				<p><b>关注微博NOAH-LoveLiveSupport以获取LLSupport最新信息</b></p>
-    				<p>访问 card.llsupport.cn 进行查卡和模拟打歌哦</p>
-    				<p>软件的大陆网站是 www.llsupport.cn 国际地区是 sg.llsupport.cn 哦！</p>
-    				<p>活动开始时满LP与卡经验能够让玩家赢在起跑线上</p>
-    				<p>宁愿多用1心也不要掉档</p>
-    				<p>解决谜之miss的有效方法之一是揭掉屏幕贴膜</p>
-    				<p>自动组队不会考虑技能颜色绊和主唱加成会比手动组队差很多</p>
-    				<p>权衡冲档收益时不要忘记将三档的3心/1招募券考虑进成本也不要忘记将卡片觉醒获得的1心活动pt奖励和SM一档多获得的1招募券考虑进收益</p>
-    				<p>玄学对抽卡没有任何影响只能带来心理上的作用</p>
-    				<p>招募券不能用于限定招募</p>
-    				<p>长按的得分为1.25倍但是得分受到头尾两次判定的叠乘影响</p>
-    				<p>算心算法不会利用最后12分钟回复的LP以给玩家足够多的保档缓冲时间</p>
-    				<p>算心是绝对准确的但是请尽量避免卡线</p>
-    				<p>300级以前，LP上限每2级增加1点，之后则每3级增加1点</p>
-    				<p>50级以前，好友位每5级增加1个，之后则每10级增加1个</p>
-    				<p>小泉花阳的生日为1月17日</p>
-    				<p>园田海未的生日为3月15日</p>
-    				<p>西木野真姬的生日为4月19日</p>
-    				<p>东条希的生日为6月9日</p>
-    				<p>矢泽妮可的生日为7月22日</p>
-    				<p>高坂穗乃果的生日为8月3日</p>
-    				<p>南小鸟的生日为9月12日</p>
-    				<p>绚濑绘里的生日为10月21日</p>
-    				<p>星空凛的生日为11月1日</p>
-    				<p>黑泽黛雅的生日为1月1日</p>
-    				<p>松浦果南的生日为2月10日</p>
-    				<p>国木田花丸的生日为3月4日</p>
-    				<p>渡边曜的生日为4月17日</p>
-    				<p>小原鞠莉的生日为6月13日</p>
-    				<p>津岛善子的生日为7月13日</p>
-    				<p>高海千歌的生日为8月1日</p>
-    				<p>樱内梨子的生日为9月19日</p>
-    				<p>黑泽露比的生日为9月21日</p>
-    				<p>想要联系作者，请点击查看关于页面</p>
-    				<p>关注微博NOAH-LoveLiveSupport以获取LLSupport最新信息</p>
-  			</ul> 
-			<script type="text/javascript" src="js/tipsnew.js"> </script> 
-		</div> 
+	<div class="main-banner">
+		<div class="main-banner-text">最新活动</div>
+		<div id="result" ></div>
 	</div>
-	<div class="box-shadow indexmd-frame">
-		<div class="indexmd-frame-in-icon box-shadow">
-			<a class="mui-icon mui-icon-redo " href="page/listtw.html"></a>
-		</div>
-		<a href="page/listtw.html"><div class="indexmd-frame-in framebg19"></div></a>
-		<div class="indexmd-frame-bar">
-			<div class="indexmd-frame-bar-text">
-			台服活动数据列表
-			</div>
-		</div>
+	<a href="kui-music/index.html" >
+	<div class="main-banner">
+		<div class="main-banner-text">雏葵-LLSupport专区</div>
+		<div class="kui-banner"></div>
 	</div>
-	<div class="box-shadow indexmd-frame">
-		<div class="indexmd-frame-in-icon box-shadow">
-			<a class="mui-icon mui-icon-redo " href="page/list.html"></a>
-		</div>
-		<a href="page/list.html"><div class="indexmd-frame-in framebg17"></div></a>
-		<div class="indexmd-frame-bar">
-			<div class="indexmd-frame-bar-text">
-			国服活动数据列表
-			</div>
-		</div>
+	</a>
+	<div class="main-frame">
+		<table class="main-icon">
+			<div class="main-banner-text">活动信息</div>
+			<tr>
+				<td><a href="page/event_jp.html"><div>にほん</div></a></td>
+				<td><a href="page/event_en.html"><div>WorldWide</div></a></td>
+			</tr>
+			<tr>
+				<td colspan="2"><a href="page/event_chs.html"><div>中国大陆</div></a></td>
+			</tr>
+		</table>
 	</div>
-	<div class="box-shadow indexmd-frame">
-		<div class="indexmd-frame-in-icon box-shadow">
-			<a class="mui-icon mui-icon-redo" href="tips/4.0gl.html"></a>
-		</div>
-		<a href="tips/4.0gl.html"><div class="indexmd-frame-in framebg18"></div></a>
-		<div class="indexmd-frame-bar">
-			<div class="indexmd-frame-bar-text">
-			4.0更新以及入门教程
-			</div>
-		</div>
+	<div class="main-frame">
+		<table class="main-icon">
+			<tr>
+				<td><a href="page/card.html"><div>卡片信息</div></a></td>
+				<td><a href="music/index.html"><div>音乐盒</div></a></td>
+			</tr>
+			<tr>
+				<td colspan="2"><a href="page/birth.html"><div>生日图片</div></a></td>
+			</tr>
+		</table>
 	</div>
-	
-	<div class="box-shadow indexmd-frame">
-		<div class="indexmd-frame-in-icon box-shadow">
-			<a class="mui-icon mui-icon-redo" href="culaview.html"></a>
-		</div>
-		<a href="culaview.html"><div class="indexmd-frame-in framebg"></div></a>
-		<div class="indexmd-frame-bar">
-			<div class="indexmd-frame-bar-text">
-			活动用心计算器
-			</div>
-		</div>
+	<div class="main-img">
+		<script src="js/mainimg.js"></script>
 	</div>
-	<div class="box-shadow indexmd-frame ">
-		<div class="indexmd-frame-in-icon box-shadow">
-			<a class="mui-icon mui-icon-redo " href="toolsview.html"></a>
-		</div>
-		<a href="toolsview.html"><div class="indexmd-frame-in framebg2"></div></a>
-		<div class="indexmd-frame-bar">
-			<div class="indexmd-frame-bar-text">
-			游戏内部数据查询
-			</div>
-		</div>
+	<div class="main-footer">
+		Copyright 2017 LLSupport(Singapore) All Rights Reserved.
 	</div>
-	
-	<!--<div class="box-shadow indexmd-frame">
-		<div class="indexmd-frame-in-icon box-shadow">
-			<a class="mui-icon mui-icon-redo " href="tips.html"></a>
-		</div>
-		<div class="indexmd-frame-in framebg15"></div>
-		<div class="indexmd-frame-bar">
-			<div class="indexmd-frame-bar-text">
-			实用攻略
-			</div>
-		</div>
-	</div>-->
-	<div class="box-shadow indexmd-frame">
-		<div class="indexmd-frame-in-icon box-shadow">
-			<a class="mui-icon mui-icon-redo " href="page/crpt.html"></a>
-		</div>
-		<a href="page/crpt.html"><div class="indexmd-frame-in framebg14"></div></a>
-		<div class="indexmd-frame-bar">
-			<div class="indexmd-frame-bar-text">
-			活动档线数据@ieb电玩果
-			</div>
-		</div>
-	</div>
-	<div class="box-shadow indexmd-frame">
-		<div class="indexmd-frame-in-icon box-shadow">
-			<a class="mui-icon mui-icon-redo " href="page/birth.html"></a>
-		</div>
-		<a href="page/birth.html"><div class="indexmd-frame-in framebg3"></div></a>
-		<div class="indexmd-frame-bar">
-			<div class="indexmd-frame-bar-text">
-			生日限定图片
-			</div>
-		</div>
-	</div>
-	<!--<div class="box-shadow indexmd-frame">
-		<div class="indexmd-frame-in-icon box-shadow">
-			<a class="mui-icon mui-icon-redo " href="page/sim.html"></a>
-		</div>
-		<div class="indexmd-frame-in framebg16"></div>
-		<div class="indexmd-frame-bar">
-			<div class="indexmd-frame-bar-text">
-			模拟器(测试中)
-			</div>
-		</div>
-	</div>-->
-	<br>
-	<div style="text-align: center;">
-		<p>Copyright 2016 LLSupport(Singapore) All Rights Reserved.</p>
-	</div>
-	
 </body>
 </html>
